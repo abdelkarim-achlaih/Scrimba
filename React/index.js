@@ -17,14 +17,25 @@
 
 // ReactDOM.render(page, document.getElementById("root"));
 
-function Page() {
+function Header() {
 	return (
-		<div>
-			<header>
-				<nav>
-					<img src="./react-logo.png" width="40" />
-				</nav>
-			</header>
+		<header>
+			<nav>
+				<img src="./react-logo.png" width="40px" />
+			</nav>
+		</header>
+	);
+}
+function Footer() {
+	return (
+		<footer>
+			<small>© 2021 Ziroll development. All rights reserved.</small>
+		</footer>
+	);
+}
+function MainContent() {
+	return (
+		<>
 			<h1>Reasons I'm excited to learn React</h1>
 			<ol>
 				<li>
@@ -32,7 +43,15 @@ function Page() {
 				</li>
 				<li>I'm more likely to get a job as a developer if I know React</li>
 			</ol>
-			<footer>© 2023 Abdelkarim development. All rights reserved.</footer>
+		</>
+	);
+}
+function Page() {
+	return (
+		<div>
+			<Header />
+			<MainContent />
+			<Footer />
 		</div>
 	);
 }
