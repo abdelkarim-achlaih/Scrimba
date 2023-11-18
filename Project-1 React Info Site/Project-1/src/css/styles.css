@@ -1,3 +1,43 @@
 body {
   font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 26px;
+  background-color: #21222A;
+}
+nav .nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+nav .nav h2 {
+  color: #61DAFB;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -1.113px;
+  font-size: 22px;
+}
+nav > h2 {
+  font-size: 16px;
+  color: #DEEBF8;
+  text-align: right;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }/*# sourceMappingURL=styles.css.map */
