@@ -1,5 +1,6 @@
 $mainColor: #61DAFB;
 $secondColor: #DEEBF8;
+$thirdColor: #FFF;
 $bgColor: #21222A;
 $bgSecond: #282D35;
 
@@ -47,5 +48,38 @@ nav {
     font-weight: 600;
     line-height: normal;
     margin-left: auto;
+  }
+}
+
+.main {
+  background-color: $bgSecond;
+  padding-top: 57px;
+  padding-bottom: 57px;
+
+  h1 {
+    color: $thirdColor;
+    font-family: Inter;
+    font-size: 39px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -2px;
+    margin-left: 27px;
+    margin-bottom: 46px;
+  }
+
+  ul {
+    margin-left: 74px;
+
+    li {
+      margin-bottom: 20px;
+      color: $thirdColor;
+      font-family: Inter;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      width: 390px;
+    }
   }
 }

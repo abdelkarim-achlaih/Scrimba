@@ -40,4 +40,34 @@ nav h2:last-of-type {
   font-weight: 600;
   line-height: normal;
   margin-left: auto;
+}
+
+.main {
+  background-color: #282D35;
+  padding-top: 57px;
+  padding-bottom: 57px;
+}
+.main h1 {
+  color: #FFF;
+  font-family: Inter;
+  font-size: 39px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -2px;
+  margin-left: 27px;
+  margin-bottom: 46px;
+}
+.main ul {
+  margin-left: 74px;
+}
+.main ul li {
+  margin-bottom: 20px;
+  color: #FFF;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 390px;
 }/*# sourceMappingURL=styles.css.map */
