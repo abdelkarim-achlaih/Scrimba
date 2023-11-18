@@ -1,8 +1,5 @@
-# React + Vite
+# Fun facts about React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my first React App Ever, It's about a static website that tells us fun facts about this famous library
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Screenshot](Screenshot.png)
