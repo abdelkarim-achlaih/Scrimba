@@ -67,41 +67,27 @@ nav {
   .card-infos {
     margin-top: 9px;
 
-    .infos-line-1 {
-      &>* {
-        margin-right: 2px;
-      }
+    .stats {
 
       display: inline-flex;
       align-items: center;
+      gap: 2px;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 300;
 
       img {
         width: 14px;
       }
 
-      font-size: 12px;
-      font-style: normal;
-      font-weight: 300;
-
-      .gray {
-        &>* {
-          margin-right: 2px;
-        }
-
-        display: inline-flex;
-        align-items: center;
-
-        img {
-          width: 2px;
-        }
-
+      span:nth-child(3),
+      span:nth-child(4) {
         color: #918E9B;
 
       }
     }
 
-    .infos-line-2,
-    .infos-line-3 {
+    p {
       color: #222;
       font-size: 12px;
       font-style: normal;
@@ -109,7 +95,7 @@ nav {
       line-height: 110%;
       margin: 8px auto;
 
-      .price {
+      span {
         font-weight: 600;
       }
     }

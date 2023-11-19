@@ -53,32 +53,22 @@ nav img {
 .card .card-infos {
   margin-top: 9px;
 }
-.card .card-infos .infos-line-1 {
+.card .card-infos .stats {
   display: inline-flex;
   align-items: center;
+  gap: 2px;
   font-size: 12px;
   font-style: normal;
   font-weight: 300;
 }
-.card .card-infos .infos-line-1 > * {
-  margin-right: 2px;
-}
-.card .card-infos .infos-line-1 img {
+.card .card-infos .stats img {
   width: 14px;
 }
-.card .card-infos .infos-line-1 .gray {
-  display: inline-flex;
-  align-items: center;
+.card .card-infos .stats span:nth-child(3),
+.card .card-infos .stats span:nth-child(4) {
   color: #918E9B;
 }
-.card .card-infos .infos-line-1 .gray > * {
-  margin-right: 2px;
-}
-.card .card-infos .infos-line-1 .gray img {
-  width: 2px;
-}
-.card .card-infos .infos-line-2,
-.card .card-infos .infos-line-3 {
+.card .card-infos p {
   color: #222;
   font-size: 12px;
   font-style: normal;
@@ -86,7 +76,6 @@ nav img {
   line-height: 110%;
   margin: 8px auto;
 }
-.card .card-infos .infos-line-2 .price,
-.card .card-infos .infos-line-3 .price {
+.card .card-infos p span {
   font-weight: 600;
 }/*# sourceMappingURL=styles.css.map */
