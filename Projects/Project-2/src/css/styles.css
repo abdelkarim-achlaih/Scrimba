@@ -44,4 +44,49 @@ nav img {
   font-weight: 300;
   line-height: 110%;
   width: 320px;
+}
+
+.card img {
+  border-radius: 9px;
+  width: 176px;
+}
+.card .card-infos {
+  margin-top: 9px;
+}
+.card .card-infos .infos-line-1 {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+}
+.card .card-infos .infos-line-1 > * {
+  margin-right: 2px;
+}
+.card .card-infos .infos-line-1 img {
+  width: 14px;
+}
+.card .card-infos .infos-line-1 .gray {
+  display: inline-flex;
+  align-items: center;
+  color: #918E9B;
+}
+.card .card-infos .infos-line-1 .gray > * {
+  margin-right: 2px;
+}
+.card .card-infos .infos-line-1 .gray img {
+  width: 2px;
+}
+.card .card-infos .infos-line-2,
+.card .card-infos .infos-line-3 {
+  color: #222;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 110%;
+  margin: 8px auto;
+}
+.card .card-infos .infos-line-2 .price,
+.card .card-infos .infos-line-3 .price {
+  font-weight: 600;
 }/*# sourceMappingURL=styles.css.map */

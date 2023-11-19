@@ -57,3 +57,61 @@ nav {
     width: 320px;
   }
 }
+
+.card {
+  img {
+    border-radius: 9px;
+    width: 176px;
+  }
+
+  .card-infos {
+    margin-top: 9px;
+
+    .infos-line-1 {
+      &>* {
+        margin-right: 2px;
+      }
+
+      display: inline-flex;
+      align-items: center;
+
+      img {
+        width: 14px;
+      }
+
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 300;
+
+      .gray {
+        &>* {
+          margin-right: 2px;
+        }
+
+        display: inline-flex;
+        align-items: center;
+
+        img {
+          width: 2px;
+        }
+
+        color: #918E9B;
+
+      }
+    }
+
+    .infos-line-2,
+    .infos-line-3 {
+      color: #222;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 110%;
+      margin: 8px auto;
+
+      .price {
+        font-weight: 600;
+      }
+    }
+  }
+}

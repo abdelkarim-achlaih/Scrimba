@@ -9,11 +9,12 @@ export default function Navbar() {
 				<div className="infos-line-1">
 					<img src={Star} alt="" />
 					<span className="rating">5.0</span>
-					<span className="gray">(6) {Ellipse} USA</span>
+					<span className="gray">
+						<span>(6)</span>
+						<img src={Ellipse} alt="" /> USA
+					</span>
 				</div>
-				<div className="infos-line-2">
-					<h2>Life lessons with Katie Zaferes</h2>
-				</div>
+				<div className="infos-line-2">Life lessons with Katie Zaferes</div>
 				<div className="infos-line-3">
 					<span className="price">From $136</span> / person
 				</div>
