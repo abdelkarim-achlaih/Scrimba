@@ -5,6 +5,7 @@ $bgColor: #21222A;
 $bgSecond: #282D35;
 
 body {
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -13,4 +14,15 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+nav {
+  padding: 22px 30px;
+  fill: #FFF;
+  box-shadow: 0px 3px 7.5px rgba(0, 0, 0, 0.10);
+  height: 70px;
+
+  img {
+    width: 82px;
+  }
 }
