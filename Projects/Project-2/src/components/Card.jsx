@@ -1,19 +1,19 @@
 import Star from "../assets/Star 1.png";
-import CardPhoto from "../assets/image 12.png";
-export default function Navbar() {
+// import CardPhoto from "../assets/image 12.png";
+export default function Card(props) {
 	return (
 		<div className="card">
-			<img src={CardPhoto} alt="" />
+			<img src={"src/assets/" + props.img} alt="" />
 			<div className="card-infos">
 				<div className="stats">
 					<img src={Star} alt="" />
-					<span>5.0</span>
-					<span>(6) • </span>
-					<span>USA</span>
+					<span>{props.rating}</span>
+					<span>({props.reviewCount}) • </span>
+					<span>{props.country}</span>
 				</div>
-				<p>Life lessons with Katie Zaferes</p>
+				<p>{props.title}</p>
 				<p>
-					<span>From $136</span> / person
+					<span>From ${props.price}</span> / person
 				</p>
 			</div>
 		</div>
