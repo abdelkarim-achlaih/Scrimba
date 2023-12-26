@@ -65,6 +65,18 @@ nav {
   gap: 18px;
 
   .card {
+    position: relative;
+
+    .card-badge {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      background-color: white;
+      padding: 5px 7px;
+      border-radius: 2px;
+      font-weight: bold;
+    }
+
     >img {
       border-radius: 9px;
       width: 176px;
