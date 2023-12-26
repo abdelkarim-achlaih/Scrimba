@@ -1,4 +1,4 @@
-import Bg from "../assets/Group 77.png";
+import Bg from "../../public/assets/Group 77.png";
 export default function Hero() {
 	return (
 		<div className="hero">

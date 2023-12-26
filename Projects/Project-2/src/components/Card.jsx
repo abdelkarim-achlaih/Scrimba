@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import Star from "../assets/Star 1.png";
+import Star from "../../public/assets/Star 1.png";
 // import CardPhoto from "../assets/image 12.png";
 export default function Card(props) {
 	let badge;
@@ -11,7 +11,7 @@ export default function Card(props) {
 	return (
 		<div className="card">
 			{badge && <div className="card-badge">{badge}</div>}
-			<img src={"src/assets/" + props.coverImg} alt="" />
+			<img src={"../../public/assets/" + props.coverImg} alt="" />
 			<div className="card-infos">
 				<div className="stats">
 					<img src={Star} alt="" />

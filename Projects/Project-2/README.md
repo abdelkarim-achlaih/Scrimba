@@ -1,8 +1,18 @@
-# React + Vite
+# Airbnb Experience
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my Seconf React App developed + deployed on Netlify), It's about a static website that clones Airbnb Experience.
+I had the chance to practice old techs: HTML, CSS, JavaScript, ES6, and Sass.
+And also to learn more about
+--React Components,
+--Props,
+--Conditional rendering,
+--Pass object as props,
+--Spread object as props
 
-Currently, two official plugins are available:
+And how to install it via Nodejs => then npm => then Vite, and run multiple tools via CLI such as, dev tools, and Build. And finally deploy this app on Netlify.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Live Demo
+
+https://658af08e4f6415b398031712--zingy-tapioca-804447.netlify.app/
+
+![Screenshot](Screenshot.png)
