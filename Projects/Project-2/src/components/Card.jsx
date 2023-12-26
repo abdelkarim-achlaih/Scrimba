@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Star from "../assets/Star 1.png";
 // import CardPhoto from "../assets/image 12.png";
 export default function Card(props) {
