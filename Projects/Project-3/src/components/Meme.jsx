@@ -1,6 +1,13 @@
 import memesData from "../memesData";
+import React from "react";
 
 export default function Meme() {
+	const data = memesData.data.memes;
+	const [memeUrl, updateMemeUrl] = React.useState("");
+	function generateMeme() {
+		const rand = Math.floor(Math.random() * data.length);
+		updateMemeUrl(data[rand].url);
+	}
 	return (
 		<main>
 			<div action="" className="meme">
@@ -19,8 +26,9 @@ export default function Meme() {
 						/>
 					</div>
 				</div>
-				<input type="submit" value="Get a new meme image  🖼" />
+				<button onClick={generateMeme}>Get a new meme image 🖼</button>
 			</div>
+			<img src={memeUrl} alt="" />
 		</main>
 	);
 }

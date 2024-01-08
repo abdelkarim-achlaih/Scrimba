@@ -55,15 +55,15 @@ header nav ul li {
   line-height: normal;
 }
 
-.meme {
+main {
   padding: 26px;
 }
-.meme .inputs {
+main .meme .inputs {
   display: flex;
   margin-bottom: 15px;
   justify-content: space-between;
 }
-.meme .inputs .input-field label {
+main .meme .inputs .input-field label {
   color: var(--gray-700, #374151);
   font-family: Karla;
   font-size: 14px;
@@ -72,7 +72,7 @@ header nav ul li {
   line-height: 16.375px;
   /* 116.963% */
 }
-.meme .inputs .input-field input[type=text] {
+main .meme .inputs .input-field input[type=text] {
   display: flex;
   padding: 7.369px 10.644px;
   align-items: center;
@@ -89,7 +89,7 @@ header nav ul li {
   line-height: 19.65px;
   /* 140.355% */
 }
-.meme .inputs .input-field input[type=text]::-moz-placeholder {
+main .meme .inputs .input-field input[type=text]::-moz-placeholder {
   color: var(--gray-500, #6B7280);
   font-family: Karla;
   font-size: 14px;
@@ -98,7 +98,7 @@ header nav ul li {
   line-height: 19.65px;
   /* 140.355% */
 }
-.meme .inputs .input-field input[type=text]::placeholder {
+main .meme .inputs .input-field input[type=text]::placeholder {
   color: var(--gray-500, #6B7280);
   font-family: Karla;
   font-size: 14px;
@@ -107,7 +107,7 @@ header nav ul li {
   line-height: 19.65px;
   /* 140.355% */
 }
-.meme input[type=submit] {
+main .meme button {
   border-radius: 5px;
   background: linear-gradient(90deg, #711F8D 1.14%, #A818DA 100%);
   width: 100%;
@@ -124,4 +124,8 @@ header nav ul li {
   outline: none;
   border: none;
   cursor: pointer;
+}
+main img {
+  margin-top: 20px;
+  width: 100%;
 }/*# sourceMappingURL=styles.css.map */
