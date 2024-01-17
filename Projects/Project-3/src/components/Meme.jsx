@@ -16,21 +16,37 @@ export default function Meme() {
 			randomImage: allMemeImages[rand].url,
 		}));
 	}
+	function handleChange(event) {
+		const { name, value } = event.target;
+		setMeme((prevMeme) => ({
+			...prevMeme,
+			[name]: value,
+		}));
+	}
 	return (
 		<main>
 			<div action="" className="meme">
 				<div className="inputs">
 					<div className="input-field">
 						<label htmlFor="top">Top text</label>
-						<input type="text" name="top" id="top" placeholder="Shut up" />
+						<input
+							type="text"
+							name="topText"
+							id="top"
+							placeholder="Shut up"
+							onChange={handleChange}
+							value={meme.topText}
+						/>
 					</div>
 					<div className="input-field">
 						<label htmlFor="bottom">Bottom text</label>
 						<input
 							type="text"
-							name="bottom"
+							name="bottomText"
 							id="bottom"
 							placeholder="And take my money"
+							onChange={handleChange}
+							value={meme.bottomText}
 						/>
 					</div>
 				</div>
@@ -38,8 +54,8 @@ export default function Meme() {
 			</div>
 			<div className="meme">
 				<img src={meme.randomImage} className="meme--image" />
-				<h2 className="meme--text top">One does not simply</h2>
-				<h2 className="meme--text bottom">Walk into Mordor</h2>
+				<h2 className="meme--text top">{meme.topText}</h2>
+				<h2 className="meme--text bottom">{meme.bottomText}</h2>
 			</div>
 		</main>
 	);
