@@ -1,4 +1,4 @@
-# Meme Generator aPP
+# Meme Generator App
 
 This is my third React App developed + deployed on Netlify), It's about an app that calls an api requesting some meme images, then collect infos from a form to display it on a random meme image
 I had the chance to practice old techs: HTML, CSS, JavaScript, ES6, fetch API, Async/Await, and Sass.
