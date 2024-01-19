@@ -3,7 +3,6 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  background-color: #282D35;
 }
 
 * {
@@ -90,7 +89,8 @@ main {
   background-position: 100% 50%;
   background-repeat: no-repeat;
   background-size: 150px;
-  color: #FFF;
+  background-color: white;
+  color: #2B283A;
 }
 main.dark {
   background-image: url("../assets/react-icon-dark.png");
