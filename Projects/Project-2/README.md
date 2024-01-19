@@ -13,6 +13,6 @@ And how to install it via Nodejs => then npm => then Vite, and run multiple tool
 
 # Live Demo
 
-https://658af08e4f6415b398031712--zingy-tapioca-804447.netlify.app/
+https://zingy-tapioca-804447.netlify.app/
 
 ![Screenshot](Screenshot.png)

@@ -17,6 +17,6 @@ And how to install it via Nodejs => then npm => then Vite, and run multiple tool
 
 # Live Demo
 
-https://65a891ec3419c520c6a72e6c--mellifluous-speculoos-8f8985.netlify.app/
+https://mellifluous-speculoos-8f8985.netlify.app/
 
 ![Screenshot](Screenshot.png)
