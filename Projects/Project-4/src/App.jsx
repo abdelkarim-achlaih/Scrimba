@@ -7,7 +7,7 @@ import { nanoid } from "nanoid";
 
 export default function App() {
 	const [notes, setNotes] = React.useState(
-		JSON.parse(window.localStorage.getItem("notes")) || []
+		() => JSON.parse(window.localStorage.getItem("notes")) || []
 	);
 	const [currentNoteId, setCurrentNoteId] = React.useState(
 		(notes[0] && notes[0].id) || ""
