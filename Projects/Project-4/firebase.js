@@ -1,5 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { getFireStore, collection } from "firebase/firestore";
 
 const firebaseConfig = {
 	apiKey: "AIzaSyDRM7ox3PrUJPbBL31yQM4OONIbXUnRmwc",
@@ -12,3 +13,5 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const db = getFireStore(app);
+const notesCollection = collection(db, "notes");
