@@ -27,13 +27,18 @@ export default function App() {
 	}
 
 	function updateNote(text) {
-		setNotes((oldNotes) =>
-			oldNotes.map((oldNote) => {
-				return oldNote.id === currentNoteId
-					? { ...oldNote, body: text }
-					: oldNote;
-			})
-		);
+		setNotes((oldNotes) => {
+			let index;
+			let modified = oldNotes.map((oldNote, i) => {
+				if (oldNote.id === currentNoteId) {
+					index = i;
+					return { ...oldNote, body: text };
+				} else {
+					return oldNote;
+				}
+			});
+			return [...modified.splice(index, 1), ...modified];
+		});
 	}
 
 	function findCurrentNote() {
