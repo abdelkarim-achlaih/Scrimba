@@ -21,8 +21,16 @@ export default function App() {
 
 	const [currentNoteId, setCurrentNoteId] = React.useState("");
 
+	const [tempNoteText, setTempNoteText] = React.useState("");
+
 	const currentNote =
 		notes.find((note) => note.id === currentNoteId) || notes[0];
+
+	React.useEffect(() => {
+		if (currentNote) {
+			setTempNoteText(currentNote.body);
+		}
+	}, [currentNote]);
 
 	const q = query(notesCollection, orderBy("updatedAt", "desc"));
 
@@ -42,7 +50,16 @@ export default function App() {
 		if (!currentNote) {
 			setCurrentNoteId(notes[0]?.id);
 		}
-	}, [notes]);
+	}, [currentNote]);
+
+	React.useEffect(() => {
+		const timeoutId = setTimeout(() => {
+			if (tempNoteText !== currentNote.body) {
+				updateNote(tempNoteText);
+			}
+		}, 500);
+		return () => clearTimeout(timeoutId);
+	}, [tempNoteText]);
 
 	async function createNewNote() {
 		const newNote = {
@@ -77,7 +94,10 @@ export default function App() {
 						setCurrentNoteId={setCurrentNoteId}
 						newNote={createNewNote}
 					/>
-					<Editor currentNote={currentNote} updateNote={updateNote} />
+					<Editor
+						tempNoteText={tempNoteText}
+						setTempNoteText={setTempNoteText}
+					/>
 				</Split>
 			) : (
 				<div className="no-notes">
