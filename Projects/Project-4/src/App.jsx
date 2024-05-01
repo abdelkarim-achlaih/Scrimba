@@ -4,6 +4,8 @@ import Editor from "./components/Editor";
 // import { data } from "./data";
 import Split from "react-split";
 import { nanoid } from "nanoid";
+import { notesCollection } from "../firebase";
+import { onSnapshot } from "firebase/firestore";
 
 export default function App() {
 	const [notes, setNotes] = React.useState([]);
@@ -14,8 +16,16 @@ export default function App() {
 		notes.find((note) => note.id === currentNoteId) || notes[0];
 
 	React.useEffect(() => {
-		
-	}, [notes]);
+		const unsubscribe = onSnapshot(notesCollection, (snapshot) => {
+			const notes = snapshot.docs.map((doc) => ({
+				...doc.data(),
+				id: doc.id,
+			}));
+			setNotes(notes);
+			console.log(notes);
+		});
+		return unsubscribe;
+	}, []);
 
 	function createNewNote() {
 		const newNote = {
