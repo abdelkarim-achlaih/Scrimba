@@ -21,4 +21,4 @@ And how to install it via Nodejs => then npm => then Vite, and run multiple tool
 
 https://6632bdf423bb1324d6ee0fe6--musical-dango-194a5b.netlify.app/
 
-![Screenshot](Screenshot.png)
+![Screenshot](Screen.png)
