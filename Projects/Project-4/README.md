@@ -1,4 +1,4 @@
-# Meme Generator App
+# React Notes App
 
 This is my Fourth React App developed + deployed on Netlify), I waf, first, introduced to a brand new code base, I read through it, understand it and then develop new features: like adding the ability to add, update, delete notes, store theme first in the local storage and then in Firebase.
 I had the chance to practice old techs: HTML, CSS, JavaScript, ES6, fetch API, Async/Await, and Sass.
