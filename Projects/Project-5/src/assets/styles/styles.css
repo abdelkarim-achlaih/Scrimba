@@ -51,7 +51,7 @@ main .container .game .dies .die {
           user-select: none;
   cursor: pointer;
 }
-main .container .game .dies .die.active, main .container .game .dies .die:hover {
+main .container .game .dies .die.held, main .container .game .dies .die:hover {
   background-color: #59E391;
 }
 main .container .game button {

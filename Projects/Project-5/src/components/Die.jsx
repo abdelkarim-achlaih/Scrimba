@@ -1,5 +1,5 @@
 import { useState } from "react";
 
 export default function Die(props) {
-	return <div className="die">{props.value}</div>;
+	return <div className={props.isHeld ? "die held" : "die"}>{props.value}</div>;
 }

@@ -58,7 +58,7 @@ main {
           cursor: pointer;
 
 
-          &.active,
+          &.held,
           &:hover {
             background-color: #59E391;
           }
