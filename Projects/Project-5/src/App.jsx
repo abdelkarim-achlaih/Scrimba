@@ -16,6 +16,9 @@ function App() {
 		}
 		return numbers;
 	}
+	function rollDice() {
+		setDice(allNewDice());
+	}
 	return (
 		<main>
 			<div className="container">
@@ -28,7 +31,7 @@ function App() {
 				</div>
 				<div className="game">
 					<div className="dies">{diceToRender}</div>
-					<button>Roll</button>
+					<button onClick={rollDice}>Roll</button>
 				</div>
 			</div>
 		</main>
