@@ -38,52 +38,50 @@ main {
       }
     }
 
-    .row {
-      display: flex;
-      justify-content: space-between;
-      padding: 0;
-      gap: 10px;
-      margin-bottom: 10px;
+    .game {
+      .dies {
+        display: grid;
+        grid-template: auto auto / repeat(5, 1fr);
+        padding: 0;
+        gap: 10px;
+        margin-bottom: 30px;
 
-      &:first-child {
-        margin-bottom: 10px;
-      }
-
-      .die {
-        border-radius: 4px;
-        padding: 6.4px 14.5px;
-        font-size: 21px;
-        font-weight: bold;
-        background-color: white;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15);
-        transition: .3s;
-        user-select: none;
-        cursor: pointer;
+        .die {
+          border-radius: 4px;
+          padding: 6.4px 14.5px;
+          font-size: 21px;
+          font-weight: bold;
+          background-color: white;
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15);
+          transition: .3s;
+          user-select: none;
+          cursor: pointer;
 
 
-        &.active,
-        &:hover {
-          background-color: #59E391;
+          &.active,
+          &:hover {
+            background-color: #59E391;
+          }
         }
       }
-    }
 
-    button {
-      background-color: #5035FF;
-      color: white;
-      padding: 6px 21px;
-      border: none;
-      outline: none;
-      font-size: 17px;
-      font-weight: bold;
-      border-radius: 4px;
-      width: 92px;
-      transition: .3s;
-      cursor: pointer;
+      button {
+        background-color: #5035FF;
+        color: white;
+        padding: 6px 21px;
+        border: none;
+        outline: none;
+        font-size: 17px;
+        font-weight: bold;
+        border-radius: 4px;
+        width: 92px;
+        transition: .3s;
+        cursor: pointer;
 
-      &:hover {
-        background-color: white;
-        color: #5035FF;
+        &:hover {
+          background-color: white;
+          color: #5035FF;
+        }
       }
     }
   }

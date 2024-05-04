@@ -1,6 +1,21 @@
 import Die from "./components/Die";
+import { useState } from "react";
 
 function App() {
+	const [dice, setDice] = useState(() => {
+		return allNewDice();
+	});
+	const diceToRender = dice.map((die, i) => <Die key={i} value={die} />);
+	function allNewDice() {
+		let numbers = [];
+		const max = 6;
+		const min = 1;
+		const arrayLength = 10;
+		for (let i = 0; i < arrayLength; i++) {
+			numbers.push(Math.floor(Math.random() * (max - min + 1) + min));
+		}
+		return numbers;
+	}
 	return (
 		<main>
 			<div className="container">
@@ -12,22 +27,7 @@ function App() {
 					</p>
 				</div>
 				<div className="game">
-					<div className="row">
-						<Die value={1} />
-						<Die value={2} />
-						<Die value={3} />
-						<Die value={4} />
-						<Die value={5} />
-						<Die value={6} />
-					</div>
-					<div className="row">
-						<Die value={1} />
-						<Die value={2} />
-						<Die value={3} />
-						<Die value={4} />
-						<Die value={5} />
-						<Die value={6} />
-					</div>
+					<div className="dies">{diceToRender}</div>
 					<button>Roll</button>
 				</div>
 			</div>

@@ -31,17 +31,14 @@ main .container .copy p {
   font-size: 13px;
   font-weight: 400;
 }
-main .container .row {
-  display: flex;
-  justify-content: space-between;
+main .container .game .dies {
+  display: grid;
+  grid-template: auto auto/repeat(5, 1fr);
   padding: 0;
   gap: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
-main .container .row:first-child {
-  margin-bottom: 10px;
-}
-main .container .row .die {
+main .container .game .dies .die {
   border-radius: 4px;
   padding: 6.4px 14.5px;
   font-size: 21px;
@@ -54,10 +51,10 @@ main .container .row .die {
           user-select: none;
   cursor: pointer;
 }
-main .container .row .die.active, main .container .row .die:hover {
+main .container .game .dies .die.active, main .container .game .dies .die:hover {
   background-color: #59E391;
 }
-main .container button {
+main .container .game button {
   background-color: #5035FF;
   color: white;
   padding: 6px 21px;
@@ -70,7 +67,7 @@ main .container button {
   transition: 0.3s;
   cursor: pointer;
 }
-main .container button:hover {
+main .container .game button:hover {
   background-color: white;
   color: #5035FF;
 }/*# sourceMappingURL=styles.css.map */
