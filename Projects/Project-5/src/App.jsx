@@ -1,4 +1,4 @@
-import { useState } from "react";
+import Die from "./components/Die";
 
 function App() {
 	return (
@@ -12,20 +12,22 @@ function App() {
 					</p>
 				</div>
 				<div className="game">
-					<ul>
-						<li className="number active">5</li>
-						<li className="number">5</li>
-						<li className="number">5</li>
-						<li className="number active">5</li>
-						<li className="number">5</li>
-					</ul>
-					<ul>
-						<li className="number">6</li>
-						<li className="number">6</li>
-						<li className="number">6</li>
-						<li className="number active">6</li>
-						<li className="number">6</li>
-					</ul>
+					<div className="row">
+						<Die value={1} />
+						<Die value={2} />
+						<Die value={3} />
+						<Die value={4} />
+						<Die value={5} />
+						<Die value={6} />
+					</div>
+					<div className="row">
+						<Die value={1} />
+						<Die value={2} />
+						<Die value={3} />
+						<Die value={4} />
+						<Die value={5} />
+						<Die value={6} />
+					</div>
 					<button>Roll</button>
 				</div>
 			</div>
