@@ -8,25 +8,43 @@ function App() {
 	});
 
 	const diceToRender = dice.map((die, i) => (
-		<Die key={die.id} value={die.value} isHeld={die.isHeld} />
+		<Die
+			key={die.id}
+			value={die.value}
+			isHeld={die.isHeld}
+			holdDice={() => {
+				holdDice(die.id);
+			}}
+		/>
 	));
-
-	function allNewDice() {
-		let numbers = [];
+	function generateNewDie() {
 		const max = 6;
 		const min = 1;
+		return {
+			value: Math.floor(Math.random() * (max - min + 1) + min),
+			isHeld: false,
+			id: nanoid(),
+		};
+	}
+	function allNewDice() {
+		let numbers = [];
 		const arrayLength = 10;
 		for (let i = 0; i < arrayLength; i++) {
-			numbers.push({
-				value: Math.floor(Math.random() * (max - min + 1) + min),
-				isHeld: false,
-				id: nanoid(),
-			});
+			numbers.push(generateNewDie());
 		}
 		return numbers;
 	}
 	function rollDice() {
-		setDice(allNewDice());
+		setDice((prevDice) =>
+			prevDice.map((die) => (!die.isHeld ? generateNewDie() : die))
+		);
+	}
+	function holdDice(id) {
+		setDice((prevDice) =>
+			prevDice.map((die) =>
+				die.id === id ? { ...die, isHeld: !die.isHeld } : die
+			)
+		);
 	}
 	return (
 		<main>
