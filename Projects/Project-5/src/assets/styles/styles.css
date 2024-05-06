@@ -63,7 +63,7 @@ main .container .game button {
   font-size: 17px;
   font-weight: bold;
   border-radius: 4px;
-  width: 92px;
+  width: 150px;
   transition: 0.3s;
   cursor: pointer;
 }

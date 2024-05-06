@@ -22,7 +22,6 @@ function App() {
 		const winRuleTwo = dice.every((die) => die.value === dice[0].value);
 		if (winRuleOne && winRuleTwo) {
 			setTenzies(true);
-			console.log("You won!");
 		}
 	}, [dice]);
 
@@ -57,9 +56,14 @@ function App() {
 	}
 
 	function rollDice() {
-		setDice((prevDice) =>
-			prevDice.map((die) => (!die.isHeld ? generateNewDie() : die))
-		);
+		if (tenzies) {
+			setDice(allNewDice());
+			setTenzies(false);
+		} else {
+			setDice((prevDice) =>
+				prevDice.map((die) => (!die.isHeld ? generateNewDie() : die))
+			);
+		}
 	}
 
 	function holdDice(id) {
