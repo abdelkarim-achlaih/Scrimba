@@ -1,19 +1,23 @@
-import React from "react"
+import React from "react";
 
-const ToggleContext = React.createContext()
+const ToggleContext = React.createContext();
 
-export default function Toggle({ children }) {
-    const [on, setOn] = React.useState(false)
+export default function Toggle({ children, onToggle }) {
+	const [on, setOn] = React.useState(false);
 
-    function toggle() {
-        setOn(prevOn => !prevOn)
-    }
+	function toggle() {
+		setOn((prevOn) => !prevOn);
+	}
 
-    return (
-        <ToggleContext.Provider value={{ on, toggle }}>
-            {children}
-        </ToggleContext.Provider>
-    )
+	React.useEffect(() => {
+		onToggle();
+	}, [on]);
+
+	return (
+		<ToggleContext.Provider value={{ on, toggle }}>
+			{children}
+		</ToggleContext.Provider>
+	);
 }
 
-export { ToggleContext }
+export { ToggleContext };
