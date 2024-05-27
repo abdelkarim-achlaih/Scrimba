@@ -6,7 +6,7 @@ import Star from "./components/Star";
 function App() {
 	return (
 		<>
-			<Star onChange={() => console.log("Star Clicked")} />
+			<Star />
 			<br />
 
 			<Menu onOpen={() => console.log("Menu was clicked")}>
