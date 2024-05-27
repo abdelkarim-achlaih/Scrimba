@@ -108,3 +108,16 @@ button.button-danger {
 .menu-item:not(:last-child) {
 	border-bottom: 1px solid #6b7280;
 }
+
+.box {
+	height: 100px;
+	width: 100px;
+	border: 1px solid black;
+	cursor: pointer;
+	background-color: white;
+	transition: background-color 0.3s ease-in-out;
+}
+
+.box.filled {
+	background-color: blue;
+}
