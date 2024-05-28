@@ -24,9 +24,7 @@ function App() {
 			<Toggle>
 				<Toggle.Button>
 					<Toggle.Display>
-						{(on) => {
-							return <div className={`box ${on && "filled"}`}></div>;
-						}}
+						{(on) => <div className={`box ${on && "filled"}`}></div>}
 					</Toggle.Display>
 				</Toggle.Button>
 			</Toggle>
