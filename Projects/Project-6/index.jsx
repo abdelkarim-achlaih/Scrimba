@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import Menu from "./components/Menu/index";
 import Star from "./components/Star";
 import Toggle from "./components/Toggle/index";
+import Accordion from "./components/Accordion/index";
 
 function App() {
 	return (
@@ -28,6 +29,28 @@ function App() {
 					</Toggle.Display>
 				</Toggle.Button>
 			</Toggle>
+
+			<br />
+			<Accordion>
+				<Accordion.Section>
+					<Accordion.Title>title</Accordion.Title>
+					<Accordion.Body>bodyyyyyyyyyyyyy</Accordion.Body>
+				</Accordion.Section>
+				<Accordion.Section>
+					<Accordion.Title>title</Accordion.Title>
+					<Accordion.Body>bodyyyyyyyyyyyyy</Accordion.Body>
+				</Accordion.Section>
+			</Accordion>
+			<Accordion>
+				<Accordion.Section>
+					<Accordion.Title>title</Accordion.Title>
+					<Accordion.Body>bodyyyyyyyyyyyyy</Accordion.Body>
+				</Accordion.Section>
+				<Accordion.Section>
+					<Accordion.Title>title</Accordion.Title>
+					<Accordion.Body>bodyyyyyyyyyyyyy</Accordion.Body>
+				</Accordion.Section>
+			</Accordion>
 		</>
 	);
 }

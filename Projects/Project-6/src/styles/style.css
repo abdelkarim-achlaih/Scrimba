@@ -121,3 +121,54 @@ button.button-danger {
 .box.filled {
 	background-color: blue;
 }
+
+.accordion {
+	width: 800px;
+}
+.accordion-section {
+	margin-bottom: 0;
+}
+
+.accordion-button {
+	background-color: #eee;
+	color: #444;
+	cursor: pointer;
+	padding: 18px;
+	width: 100%;
+	text-align: left;
+	border: none;
+	outline: none;
+	transition: 0.4s;
+	width: 100%;
+	margin-bottom: 0;
+}
+
+.active,
+.accordion-button:hover {
+	background-color: #ccc;
+}
+.accordion-button:after {
+	content: "\02795"; /* Unicode character for "plus" sign (+) */
+	font-size: 13px;
+	color: #777;
+	float: right;
+	margin-left: 5px;
+}
+
+.active:after {
+	content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+.panel {
+	padding: 0 18px;
+	background-color: white;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
+}
+.panel.on {
+	max-height: unset;
+}
+p {
+	margin-bottom: 0;
+}
