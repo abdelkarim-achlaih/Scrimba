@@ -124,6 +124,8 @@ button.button-danger {
 
 .accordion {
 	width: 800px;
+	border: 1px solid red;
+	margin-bottom: 20px;
 }
 .accordion-section {
 	margin-bottom: 0;
@@ -164,10 +166,11 @@ button.button-danger {
 	background-color: white;
 	max-height: 0;
 	overflow: hidden;
-	transition: max-height 0.2s ease-out;
+	transition: 0.2s ease-out;
 }
 .panel.on {
-	max-height: unset;
+	max-height: 200px;
+	padding: 20px 18px;
 }
 p {
 	margin-bottom: 0;

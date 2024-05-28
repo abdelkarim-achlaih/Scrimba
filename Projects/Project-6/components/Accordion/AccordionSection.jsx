@@ -1,10 +1,17 @@
 import React from "react";
-import Toggle from "../Toggle/index";
+import useToggle from "../../hooks/useToggle";
+
+const AccordionContext = React.createContext();
+export { AccordionContext };
 
 export default function AccordionSection({ children, onOpen }) {
+	const [open, toggleOpen] = useToggle({
+		initialValue: false,
+		onToggle: onOpen,
+	});
 	return (
-		<Toggle onToggle={onOpen}>
+		<AccordionContext.Provider value={{ open, toggleOpen }}>
 			<div className="accordion-section">{children}</div>
-		</Toggle>
+		</AccordionContext.Provider>
 	);
 }

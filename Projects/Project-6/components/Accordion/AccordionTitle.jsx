@@ -1,15 +1,14 @@
 import React from "react";
-import Toggle from "../Toggle/index";
+import { AccordionContext } from "./AccordionSection";
 
 export default function AccordionTitle({ children }) {
+	const { open, toggleOpen } = React.useContext(AccordionContext);
 	return (
-		<Toggle.Button>
-			<Toggle.On>
-				<h1 className="accordion-button active">{children}</h1>
-			</Toggle.On>
-			<Toggle.Off>
-				<h1 className="accordion-button">{children}</h1>
-			</Toggle.Off>
-		</Toggle.Button>
+		<h1
+			onClick={toggleOpen}
+			className={`accordion-button${open ? " active" : ""}`}
+		>
+			{children}
+		</h1>
 	);
 }

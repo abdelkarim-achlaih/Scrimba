@@ -32,7 +32,9 @@ function App() {
 
 			<br />
 			<Accordion>
-				<Accordion.Section>
+				<Accordion.Section
+					onOpen={() => console.log("Accordion Opened/closed")}
+				>
 					<Accordion.Title>title</Accordion.Title>
 					<Accordion.Body>bodyyyyyyyyyyyyy</Accordion.Body>
 				</Accordion.Section>
@@ -42,7 +44,9 @@ function App() {
 				</Accordion.Section>
 			</Accordion>
 			<Accordion>
-				<Accordion.Section>
+				<Accordion.Section
+					onOpen={() => console.log("Accordion Opened/closed")}
+				>
 					<Accordion.Title>title</Accordion.Title>
 					<Accordion.Body>bodyyyyyyyyyyyyy</Accordion.Body>
 				</Accordion.Section>
