@@ -11,6 +11,11 @@ export default function Vans() {
 		}
 		getData();
 	}, []);
-	const vansElements = vans.map((van) => <Van key={van.id} {...van} />);
-	return <div className="vans">{vansElements}</div>;
+	const vanElements = vans.map((van) => <Van key={van.id} {...van} />);
+	return (
+		<div className="van-list-container">
+			<h1>Explore our van options</h1>
+			<div className="van-list">{vanElements}</div>
+		</div>
+	);
 }
