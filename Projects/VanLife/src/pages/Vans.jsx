@@ -1,6 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Van from "./Van";
 
 export default function Vans() {
-	return <h1>Vans page goes here 🚐</h1>;
+	const [vans, setVans] = React.useState([]);
+	React.useEffect(() => {
+		async function getData() {
+			const req = await fetch("/api/vans");
+			const response = await req.json();
+			setVans(response.vans);
+		}
+		getData();
+	}, []);
+	const vansElements = vans.map((van) => <Van key={van.id} {...van} />);
+	return <div className="vans">{vansElements}</div>;
 }
