@@ -5,7 +5,6 @@ export default function HostVan({ id, imageUrl, name, price }) {
 	return (
 		<Link
 			to={`/host/vans/${id}`}
-			key={id}
 			className="host-van-link-wrapper"
 			aria-label={`View details for ${name}, priced at $${price} per day`}
 		>

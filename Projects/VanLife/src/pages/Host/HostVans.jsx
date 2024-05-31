@@ -12,7 +12,9 @@ export default function HostVans() {
 		}
 		getData();
 	}, []);
-	const hostVanElements = hostVans.map((hostVan) => <HostVan {...hostVan} />);
+	const hostVanElements = hostVans.map((hostVan) => (
+		<HostVan key={hostVan.id} {...hostVan} />
+	));
 
 	return (
 		<section>
