@@ -3,9 +3,9 @@ import { Link, NavLink } from "react-router-dom";
 export default function Header() {
 	return (
 		<header>
-			<Link className="site-logo" to="/">
+			<NavLink className="site-logo" to="/" end>
 				#VanLife
-			</Link>
+			</NavLink>
 			<nav>
 				<NavLink
 					className={({ isActive }) => (isActive ? "active-link" : null)}
