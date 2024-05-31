@@ -8,8 +8,6 @@ body {
 	padding: 0;
 	background-color: #fff7ed;
 	font-family: "Inter", sans-serif;
-	max-width: 1200px;
-	margin: auto;
 }
 
 body::-webkit-scrollbar {
@@ -19,6 +17,14 @@ body::-webkit-scrollbar {
 body {
 	-ms-overflow-style: none;
 	scrollbar-width: none;
+	max-width: 1200px;
+	margin: auto;
+}
+
+.site-wrapper {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 
 header {
@@ -46,6 +52,22 @@ header a {
 header a:hover {
 	color: #161616;
 	text-decoration: underline;
+}
+
+main {
+	margin-bottom: 84px;
+}
+
+footer {
+	background-color: #161616;
+	color: #aaaaaa;
+	height: 74px;
+	display: flex;
+	flex-shrink: 0;
+	justify-content: center;
+	align-items: center;
+	margin-top: auto;
+	font-weight: 500;
 }
 
 .link-button {
@@ -146,6 +168,7 @@ header a:hover {
 	color: white;
 	border-radius: 10px;
 }
+
 /*** VAN PAGES ***/
 .van-list-container {
 	padding-inline: 23px;
@@ -229,6 +252,7 @@ header a:hover {
 i[class*="van-type-"] {
 	padding: 7px 14px;
 }
+
 .van-detail-container {
 	padding: 27px;
 }
@@ -280,8 +304,6 @@ i[class*="van-type-"] {
 	color: white;
 	font-size: 1.125rem;
 }
-
-/* Host */
 
 .host-nav {
 	display: flex;
