@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useParams, Outlet } from "react-router-dom";
+import { Link, NavLink, useParams, Outlet } from "react-router-dom";
 
 export default function HostVanDetail() {
 	const [van, setVan] = React.useState(null);
@@ -17,19 +17,18 @@ export default function HostVanDetail() {
 
 	return (
 		<>
-			<div className="van-detail-container">
-				{van ? (
-					<>
-						<div className="host-van-detail-layout-container">
-							<div className="host-van-detail">
-								<img src={van.imageUrl} />
-								<div className="host-van-detail-info-text">
-									<i className={`van-type van-type-${van.type}`}>
-										{van.type}
-									</i>
-									<h3>{van.name}</h3>
-									<h4>${van.price}/day</h4>
-								</div>
+			{van ? (
+				<section>
+					<Link to=".." relative="path" className="back-button">
+						&larr; <span>Back to all vans</span>
+					</Link>
+					<div className="host-van-detail-layout-container">
+						<div className="host-van-detail">
+							<img src={van.imageUrl} />
+							<div className="host-van-detail-info-text">
+								<i className={`van-type van-type-${van.type}`}>{van.type}</i>
+								<h3>{van.name}</h3>
+								<h4>${van.price}/day</h4>
 							</div>
 						</div>
 						<nav>
@@ -38,11 +37,11 @@ export default function HostVanDetail() {
 							<NavLink to={`photos`}>Photos</NavLink>
 						</nav>
 						<Outlet />
-					</>
-				) : (
-					<h2>Loading...</h2>
-				)}
-			</div>
+					</div>
+				</section>
+			) : (
+				<h2>Loading...</h2>
+			)}
 			{/* <Link to="/vans/5">See others</Link> */}
 		</>
 	);
