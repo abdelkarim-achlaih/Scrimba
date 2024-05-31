@@ -31,10 +31,26 @@ export default function HostVanDetail() {
 								<h4>${van.price}/day</h4>
 							</div>
 						</div>
-						<nav>
-							<NavLink to={"."}>Details</NavLink>
-							<NavLink to={`pricing`}>Pricing</NavLink>
-							<NavLink to={`photos`}>Photos</NavLink>
+						<nav className="host-van-detail-nav">
+							<NavLink
+								className={({ isActive }) => (isActive ? "active" : "")}
+								to="."
+								end
+							>
+								Details
+							</NavLink>
+							<NavLink
+								className={({ isActive }) => (isActive ? "active" : "")}
+								to="pricing"
+							>
+								Pricing
+							</NavLink>
+							<NavLink
+								className={({ isActive }) => (isActive ? "active" : "")}
+								to="photos"
+							>
+								Photos
+							</NavLink>
 						</nav>
 						<Outlet />
 					</div>
