@@ -27,9 +27,9 @@ export default function HostVanDetail() {
 							<span>${van.price}</span>/day
 						</div>
 						<nav>
-							<NavLink to={`/host/vans/${params.id}`}>Details</NavLink>
-							<NavLink to={`/host/vans/${params.id}/pricing`}>Pricing</NavLink>
-							<NavLink to={`/host/vans/${params.id}/photos`}>Photos</NavLink>
+							<NavLink to={"."}>Details</NavLink>
+							<NavLink to={`pricing`}>Pricing</NavLink>
+							<NavLink to={`photos`}>Photos</NavLink>
 						</nav>
 						<Outlet />
 					</>

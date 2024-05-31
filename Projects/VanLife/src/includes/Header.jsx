@@ -3,25 +3,25 @@ import { Link, NavLink } from "react-router-dom";
 export default function Header() {
 	return (
 		<header>
-			<NavLink className="site-logo" to="/" end>
+			<NavLink className="site-logo" to="." end>
 				#VanLife
 			</NavLink>
 			<nav>
 				<NavLink
 					className={({ isActive }) => (isActive ? "active-link" : null)}
-					to="/host"
+					to="host"
 				>
 					Host
 				</NavLink>
 				<NavLink
 					className={({ isActive }) => (isActive ? "active-link" : null)}
-					to="/about"
+					to="about"
 				>
 					About
 				</NavLink>
 				<NavLink
 					className={({ isActive }) => (isActive ? "active-link" : null)}
-					to="/vans"
+					to="vans"
 				>
 					Vans
 				</NavLink>
