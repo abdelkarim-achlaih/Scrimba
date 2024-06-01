@@ -1,6 +1,6 @@
 import React from "react";
 import Van from "./Van";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
 
 export default function Vans() {
 	const [searchParams, setSearchParams] = useSearchParams();
@@ -25,6 +25,20 @@ export default function Vans() {
 	return (
 		<div className="van-list-container">
 			<h1>Explore our van options</h1>
+			<div className="van-list-filter-buttons">
+				<Link className="van-type simple" to="?type=simple">
+					Simple
+				</Link>
+				<Link className="van-type luxury" to="?type=luxury">
+					Luxury
+				</Link>
+				<Link className="van-type rugged" to="?type=rugged">
+					Rugged
+				</Link>
+				<Link className="van-type clear-filters" to=".">
+					Clear
+				</Link>
+			</div>
 			<div className="van-list">{vanElements}</div>
 		</div>
 	);
