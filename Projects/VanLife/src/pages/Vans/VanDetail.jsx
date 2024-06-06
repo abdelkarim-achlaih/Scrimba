@@ -21,11 +21,14 @@ export default function VanDetail() {
 		<>
 			<div className="van-detail-container">
 				<Link
-					to={state ? `..?${state.search}` : ".."}
+					to={state && state.search ? `..?${state.search}` : ".."}
 					relative="path"
 					className="back-button"
 				>
-					&larr; <span>Back to all vans</span>
+					&larr;{" "}
+					<span>
+						Back to {state && state.type ? `${state.type}` : "all"} vans
+					</span>
 				</Link>
 				{van ? (
 					<div className="van-detail">

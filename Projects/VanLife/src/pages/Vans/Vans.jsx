@@ -22,7 +22,11 @@ export default function Vans() {
 		: vans;
 
 	const vanElements = displayedVans.map((van) => (
-		<Van key={van.id} {...van} search={{ search: searchParams.toString() }} />
+		<Van
+			key={van.id}
+			{...van}
+			search={{ search: searchParams.toString(), type: typeFilter }}
+		/>
 	));
 
 	// function genNewSPString(key, value) {
