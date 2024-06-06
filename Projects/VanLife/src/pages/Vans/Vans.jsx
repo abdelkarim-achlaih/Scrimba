@@ -21,7 +21,9 @@ export default function Vans() {
 		? vans.filter((van) => van.type === typeFilter)
 		: vans;
 
-	const vanElements = displayedVans.map((van) => <Van key={van.id} {...van} />);
+	const vanElements = displayedVans.map((van) => (
+		<Van key={van.id} {...van} search={{ search: searchParams.toString() }} />
+	));
 
 	// function genNewSPString(key, value) {
 	// 	const sp = new URLSearchParams(searchParams);
