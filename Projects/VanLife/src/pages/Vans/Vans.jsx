@@ -23,17 +23,25 @@ export default function Vans() {
 
 	const vanElements = displayedVans.map((van) => <Van key={van.id} {...van} />);
 
-	function genNewSPString(key, value) {
-		const sp = new URLSearchParams(searchParams);
-		value === null ? sp.delete(key) : sp.set(key, value);
-		return `?${sp.toString()}`;
+	// function genNewSPString(key, value) {
+	// 	const sp = new URLSearchParams(searchParams);
+	// 	value === null ? sp.delete(key) : sp.set(key, value);
+	// 	return `?${sp.toString()}`;
+	// }
+	function handleFilterChange(key, value) {
+		setSearchParams((prevSearchParams) => {
+			value === null
+				? prevSearchParams.delete(key)
+				: prevSearchParams.set(key, value);
+			return prevSearchParams;
+		});
 	}
 
 	return (
 		<div className="van-list-container">
 			<h1>Explore our van options</h1>
 			<div className="van-list-filter-buttons">
-				<Link className="van-type simple" to={genNewSPString("type", "simple")}>
+				{/* <Link className="van-type simple" to={genNewSPString("type", "simple")}>
 					Simple
 				</Link>
 				<Link className="van-type luxury" to={genNewSPString("type", "luxury")}>
@@ -47,33 +55,33 @@ export default function Vans() {
 					to={genNewSPString("type", null)}
 				>
 					Clear
-				</Link>
-				{/* <button
+				</Link> */}
+				<button
 					className="van-type luxury"
-					onClick={() => setSearchParams({ type: "simple" })}
+					onClick={() => handleFilterChange("type", "simple")}
 				>
 					Simple
 				</button>
 				<button
 					className="van-type luxury"
-					onClick={() => setSearchParams({ type: "luxury" })}
+					onClick={() => handleFilterChange("type", "luxury")}
 				>
 					Luxury
 				</button>
 				<button
 					className="van-type rugged"
-					onClick={() => setSearchParams({ type: "rugged" })}
+					onClick={() => handleFilterChange("type", "rugged")}
 				>
 					Rugged
 				</button>
 				{typeFilter && (
 					<button
 						className="van-type clear-filters"
-						onClick={() => setSearchParams({})}
+						onClick={() => handleFilterChange("type", null)}
 					>
 						Clear
 					</button>
-				)} */}
+				)}
 			</div>
 			<div className="van-list">{vanElements}</div>
 		</div>
