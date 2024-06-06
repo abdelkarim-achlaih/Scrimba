@@ -9,14 +9,25 @@ export default function Vans() {
 
 	const typeFilter = searchParams.get("type");
 
-	const [loading, setLoading] = React.useState(false)
+	const [loading, setLoading] = React.useState(false);
+
+	const [error, setError] = React.useState(null);
 
 	React.useEffect(() => {
 		async function getData() {
-			setLoading(true)
-			const response = await getVans();
-			setVans(response.vans);
-			setLoading(false)
+			console.log("...loading");
+			setLoading(true);
+			try {
+				console.log("...trying");
+				const vans = await getVans();
+				setVans(vans);
+			} catch (err) {
+				console.log("...catching");
+				setError(err);
+			} finally {
+				console.log("...finally");
+				setLoading(false);
+			}
 		}
 		getData();
 	}, []);
@@ -47,7 +58,10 @@ export default function Vans() {
 		});
 	}
 	if (loading) {
-		return <h1>Loading...</h1>
+		return <h1 aria-live="polite">Loading...</h1>;
+	}
+	if (error) {
+		return <h1 aria-live="assertive">There was an error: {error.message}</h1>;
 	}
 	return (
 		<div className="van-list-container">
