@@ -1,6 +1,7 @@
 import React from "react";
 import Van from "./Van";
 import { useSearchParams, Link } from "react-router-dom";
+import { getVans } from "../../../api";
 
 export default function Vans() {
 	const [searchParams, setSearchParams] = useSearchParams();
@@ -8,11 +9,14 @@ export default function Vans() {
 
 	const typeFilter = searchParams.get("type");
 
+	const [loading, setLoading] = React.useState(false)
+
 	React.useEffect(() => {
 		async function getData() {
-			const req = await fetch("/api/vans");
-			const response = await req.json();
+			setLoading(true)
+			const response = await getVans();
 			setVans(response.vans);
+			setLoading(false)
 		}
 		getData();
 	}, []);
@@ -42,7 +46,9 @@ export default function Vans() {
 			return prevSearchParams;
 		});
 	}
-
+	if (loading) {
+		return <h1>Loading...</h1>
+	}
 	return (
 		<div className="van-list-container">
 			<h1>Explore our van options</h1>
