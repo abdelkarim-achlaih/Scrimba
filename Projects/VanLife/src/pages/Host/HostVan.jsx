@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function HostVan({ id, imageUrl, name, price }) {
 	return (
 		<Link
-			to={`${id}`}
+			to={id}
 			className="host-van-link-wrapper"
 			aria-label={`View details for ${name}, priced at $${price} per day`}
 		>
