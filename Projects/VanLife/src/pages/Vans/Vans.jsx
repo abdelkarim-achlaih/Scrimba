@@ -1,10 +1,14 @@
 import React from "react";
 import Van from "./Van";
-import { useSearchParams, Link } from "react-router-dom";
+import { useSearchParams, Link, useLoaderData } from "react-router-dom";
 import { getVans } from "../../../api";
 
 export function loader() {
-	return "Vans data goes here";
+	// async function getData() {
+	// 	const vans = await getVans();
+	// 	return vans;
+	// }
+	return getData();
 }
 
 export default function Vans() {
@@ -17,19 +21,18 @@ export default function Vans() {
 
 	const [error, setError] = React.useState(null);
 
+	const data = useLoaderData();
+	console.log(data);
+
 	React.useEffect(() => {
 		async function getData() {
-			console.log("...loading");
 			setLoading(true);
 			try {
-				console.log("...trying");
 				const vans = await getVans();
 				setVans(vans);
 			} catch (err) {
-				console.log("...catching");
 				setError(err);
 			} finally {
-				console.log("...finally");
 				setLoading(false);
 			}
 		}
