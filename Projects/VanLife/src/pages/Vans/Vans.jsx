@@ -4,40 +4,17 @@ import { useSearchParams, Link, useLoaderData } from "react-router-dom";
 import { getVans } from "../../../api";
 
 export function loader() {
-	// async function getData() {
-	// 	const vans = await getVans();
-	// 	return vans;
-	// }
-	return getData();
+	return getVans();
 }
 
 export default function Vans() {
 	const [searchParams, setSearchParams] = useSearchParams();
-	const [vans, setVans] = React.useState([]);
 
 	const typeFilter = searchParams.get("type");
 
-	const [loading, setLoading] = React.useState(false);
-
 	const [error, setError] = React.useState(null);
 
-	const data = useLoaderData();
-	console.log(data);
-
-	React.useEffect(() => {
-		async function getData() {
-			setLoading(true);
-			try {
-				const vans = await getVans();
-				setVans(vans);
-			} catch (err) {
-				setError(err);
-			} finally {
-				setLoading(false);
-			}
-		}
-		getData();
-	}, []);
+	const vans = useLoaderData();
 
 	const displayedVans = typeFilter
 		? vans.filter((van) => van.type === typeFilter)
@@ -64,9 +41,7 @@ export default function Vans() {
 			return prevSearchParams;
 		});
 	}
-	if (loading) {
-		return <h1 aria-live="polite">Loading...</h1>;
-	}
+
 	if (error) {
 		return <h1 aria-live="assertive">There was an error: {error.message}</h1>;
 	}
