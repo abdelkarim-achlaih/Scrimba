@@ -1,30 +1,22 @@
 import React from "react";
 import HostVan from "./HostVan";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import { getVans } from "../../../api";
+
+export function loader() {
+	return getVans("host/vans");
+}
 
 export default function HostVans() {
-	const [hostVans, setHostVans] = React.useState([]);
-	React.useEffect(() => {
-		async function getData() {
-			const req = await fetch(`/api/host/vans`);
-			const response = await req.json();
-			setHostVans(response.vans);
-		}
-		getData();
-	}, []);
+	const hostVans = useLoaderData();
 	const hostVanElements = hostVans.map((hostVan) => (
 		<HostVan key={hostVan.id} {...hostVan} />
 	));
-
 	return (
 		<section>
 			<h1 className="host-vans-title">Your listed vans</h1>
 			<div className="host-vans-list">
-				{hostVans.length > 0 ? (
-					<section>{hostVanElements}</section>
-				) : (
-					<h2>Loading...</h2>
-				)}
+				<section>{hostVanElements}</section>
 			</div>
 		</section>
 	);
