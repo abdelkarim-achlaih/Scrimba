@@ -6,6 +6,7 @@ import {
 	createBrowserRouter,
 	createRoutesFromElements,
 	RouterProvider,
+	redirect,
 } from "react-router-dom";
 import Layout from "./includes/Layout";
 import Home from "./pages/Home";
@@ -40,7 +41,17 @@ const router = createBrowserRouter(
 			/>
 			<Route path="login" element={<Login />} />
 			<Route path="vans/:id" element={<VanDetail />} />
-			<Route path="host" element={<HostLayout />}>
+			<Route
+				path="host"
+				element={<HostLayout />}
+				loader={async () => {
+					const loggedIn = false;
+					if (!loggedIn) {
+						throw redirect("/login");
+						return null;
+					}
+				}}
+			>
 				<Route index element={<Dashboard />} />
 				<Route path="income" element={<Income />} />
 				<Route path="reviews" element={<Reviews />} />

@@ -1,5 +1,8 @@
-export async function getVans() {
-	const req = await fetch("/api/vans");
+export async function getVans(folder, id) {
+	//folder = vans || host/vans
+	const base = `/api/${folder}`;
+	const url = id ? `${base}/${id}` : base;
+	const req = await fetch(url);
 	if (!req.ok) {
 		throw {
 			message: "Failed to fetch vans",

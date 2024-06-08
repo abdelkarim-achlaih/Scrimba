@@ -4,15 +4,13 @@ import { useSearchParams, Link, useLoaderData } from "react-router-dom";
 import { getVans } from "../../../api";
 
 export function loader() {
-	return getVans();
+	return getVans("vans");
 }
 
 export default function Vans() {
 	const [searchParams, setSearchParams] = useSearchParams();
 
 	const typeFilter = searchParams.get("type");
-
-	const [error, setError] = React.useState(null);
 
 	const vans = useLoaderData();
 
@@ -28,11 +26,6 @@ export default function Vans() {
 		/>
 	));
 
-	// function genNewSPString(key, value) {
-	// 	const sp = new URLSearchParams(searchParams);
-	// 	value === null ? sp.delete(key) : sp.set(key, value);
-	// 	return `?${sp.toString()}`;
-	// }
 	function handleFilterChange(key, value) {
 		setSearchParams((prevSearchParams) => {
 			value === null
@@ -42,28 +35,10 @@ export default function Vans() {
 		});
 	}
 
-	if (error) {
-		return <h1 aria-live="assertive">There was an error: {error.message}</h1>;
-	}
 	return (
 		<div className="van-list-container">
 			<h1>Explore our van options</h1>
 			<div className="van-list-filter-buttons">
-				{/* <Link className="van-type simple" to={genNewSPString("type", "simple")}>
-					Simple
-				</Link>
-				<Link className="van-type luxury" to={genNewSPString("type", "luxury")}>
-					Luxury
-				</Link>
-				<Link className="van-type rugged" to={genNewSPString("type", "rugged")}>
-					Rugged
-				</Link>
-				<Link
-					className="van-type clear-filters"
-					to={genNewSPString("type", null)}
-				>
-					Clear
-				</Link> */}
 				<button
 					className={`van-type simple${
 						typeFilter === "simple" ? " selected" : ""
