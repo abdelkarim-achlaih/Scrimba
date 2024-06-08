@@ -8,7 +8,7 @@ import {
 import Layout from "./includes/Layout";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Login from "./pages/Login";
+import Login, { loader as formLoader } from "./pages/Login";
 import Vans, { loader as vansLoader } from "./pages/Vans/Vans";
 import VanDetail, { loader as vanDetailLoader } from "./pages/Vans/VanDetail";
 import Dashboard from "./pages/Host/Dashboard";
@@ -39,7 +39,7 @@ const router = createBrowserRouter(
 				errorElement={<Error />}
 				loader={vansLoader}
 			/>
-			<Route path="login" element={<Login />} />
+			<Route path="login" element={<Login />} loader={formLoader} />
 			<Route path="vans/:id" element={<VanDetail />} loader={vanDetailLoader} />
 			<Route path="host" element={<HostLayout />}>
 				<Route
