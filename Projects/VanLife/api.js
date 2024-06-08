@@ -13,3 +13,22 @@ export async function getVans(folder, id) {
 	const response = await req.json();
 	return response.vans;
 }
+
+export async function loginUser(creds) {
+	const req = await fetch("/api/login", {
+		method: "post",
+		body: JSON.stringify(creds),
+	});
+
+	const data = await req.json();
+
+	if (!req.ok) {
+		throw {
+			message: data.message,
+			statusText: req.statusText,
+			status: req.status,
+		};
+	}
+
+	return data;
+}

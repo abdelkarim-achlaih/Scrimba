@@ -1,5 +1,6 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import { loginUser } from "../../api";
 
 export function loader({ request }) {
 	return new URL(request.url).searchParams.get("message");
@@ -10,11 +11,21 @@ export default function Login() {
 		password: "",
 	});
 
+	const [status, setStatus] = React.useState("idle");
+	const [error, setError] = React.useState(null);
+	const navigate = useNavigate();
+
 	function handleSubmit(e) {
 		e.preventDefault();
-		console.log(loginFormData);
+		setStatus("submitting");
+		setError(null);
+		loginUser(loginFormData)
+			.then((data) => {
+				navigate("/", { replace: true });
+			})
+			.catch((err) => setError(err))
+			.finally(() => setStatus("idle"));
 	}
-
 	function handleChange(e) {
 		const { name, value } = e.target;
 		setLoginFormData((prev) => ({
@@ -29,6 +40,7 @@ export default function Login() {
 		<div className="login-container">
 			<h1>Sign in to your account</h1>
 			{message && <h3 className="red">{message}</h3>}
+			{error && <h3 className="red">{error.message}</h3>}
 			<form onSubmit={handleSubmit} className="login-form">
 				<input
 					name="email"
@@ -44,7 +56,9 @@ export default function Login() {
 					placeholder="Password"
 					value={loginFormData.password}
 				/>
-				<button>Log in</button>
+				<button disabled={status === "submitting"}>
+					{status === "idle" ? "Log in" : "Logging In..."}
+				</button>
 			</form>
 		</div>
 	);
