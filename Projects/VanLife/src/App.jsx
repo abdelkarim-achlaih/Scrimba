@@ -13,7 +13,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Login from "./pages/Login";
 import Vans, { loader, loader as vansLoader } from "./pages/Vans/Vans";
-import VanDetail from "./pages/Vans/VanDetail";
+import VanDetail, { loader as vanDetailLoader } from "./pages/Vans/VanDetail";
 import Dashboard from "./pages/Host/Dashboard";
 import Income from "./pages/Host/Income";
 import Reviews from "./pages/Host/Reviews";
@@ -40,7 +40,7 @@ const router = createBrowserRouter(
 				loader={vansLoader}
 			/>
 			<Route path="login" element={<Login />} />
-			<Route path="vans/:id" element={<VanDetail />} />
+			<Route path="vans/:id" element={<VanDetail />} loader={vanDetailLoader} />
 			<Route
 				path="host"
 				element={<HostLayout />}
