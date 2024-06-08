@@ -1,9 +1,11 @@
 import React from "react";
 import HostVan from "./HostVan";
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { getVans } from "../../../api";
+import { requireAuth } from "../../../utils";
 
-export function loader() {
+export async function loader() {
+	await requireAuth()
 	return getVans("host/vans");
 }
 

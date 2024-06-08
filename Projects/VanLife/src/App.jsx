@@ -1,12 +1,9 @@
 import React from "react";
 import {
-	BrowserRouter,
-	Routes,
 	Route,
 	createBrowserRouter,
 	createRoutesFromElements,
 	RouterProvider,
-	redirect,
 } from "react-router-dom";
 import Layout from "./includes/Layout";
 import Home from "./pages/Home";
@@ -27,6 +24,7 @@ import HostVanPricing from "./pages/Host/HostVanPricing";
 import HostVanPhotos from "./pages/Host/HostVanPhotos";
 import NotFound from "./pages/NotFound";
 import Error from "./includes/Error";
+import { requireAuth } from "../utils";
 
 import "../server";
 
@@ -47,41 +45,17 @@ const router = createBrowserRouter(
 				<Route
 					index
 					element={<Dashboard />}
-					loader={async () => {
-						const loggedIn = true;
-						if (!loggedIn) {
-							throw redirect("/login");
-						}
-						return null;
-					}}
+					loader={async () => await requireAuth()}
 				/>
 				<Route
 					path="income"
-					element={
-						<Income
-							loader={async () => {
-								const loggedIn = true;
-								if (!loggedIn) {
-									throw redirect("/login");
-								}
-								return null;
-							}}
-						/>
-					}
+					element={<Income />}
+					loader={async () => await requireAuth()}
 				/>
 				<Route
 					path="reviews"
-					element={
-						<Reviews
-							loader={async () => {
-								const loggedIn = true;
-								if (!loggedIn) {
-									throw redirect("/login");
-								}
-								return null;
-							}}
-						/>
-					}
+					element={<Reviews />}
+					loader={async () => await requireAuth()}
 				/>
 				<Route path="vans" element={<HostVans />} loader={hostVansLoader} />
 				<Route
@@ -91,45 +65,18 @@ const router = createBrowserRouter(
 				>
 					<Route
 						index
-						element={
-							<HostVanInfo
-								loader={async () => {
-									const loggedIn = true;
-									if (!loggedIn) {
-										throw redirect("/login");
-									}
-									return null;
-								}}
-							/>
-						}
+						element={<HostVanInfo />}
+						loader={async () => await requireAuth()}
 					/>
 					<Route
 						path="pricing"
-						element={
-							<HostVanPricing
-								loader={async () => {
-									const loggedIn = true;
-									if (!loggedIn) {
-										throw redirect("/login");
-									}
-									return null;
-								}}
-							/>
-						}
+						element={<HostVanPricing />}
+						loader={async () => await requireAuth()}
 					/>
 					<Route
 						path="photos"
-						element={
-							<HostVanPhotos
-								loader={async () => {
-									const loggedIn = true;
-									if (!loggedIn) {
-										throw redirect("/login");
-									}
-									return null;
-								}}
-							/>
-						}
+						element={<HostVanPhotos />}
+						loader={async () => await requireAuth()}
 					/>
 				</Route>
 			</Route>
