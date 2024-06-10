@@ -15,7 +15,7 @@ export async function action({ request }) {
 
 	window.localStorage.setItem("loggedIn", true);
 
-	const response = redirect("/host"); //Just to make redirect to work with miragejs
+	const response = redirect("/host"); //Just to make redirect work with miragejs
 	response.body = true;
 	throw response;
 	return null;
@@ -32,7 +32,7 @@ export default function Login() {
 			<h1>Sign in to your account</h1>
 			{message && <h3 className="red">{message}</h3>}
 			{error && <h3 className="red">{error.message}</h3>}
-			<Form method="POST" className="login-form">
+			<Form method="POST" className="login-form" replace>
 				<input name="email" type="email" placeholder="Email address" />
 				<input name="password" type="password" placeholder="Password" />
 				<button disabled={status === "submitting"}>
