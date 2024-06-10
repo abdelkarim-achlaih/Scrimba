@@ -16,15 +16,16 @@ export async function action({ request }) {
 	const formData = await request.formData();
 	const email = formData.get("email");
 	const password = formData.get("password");
+	const pathname =
+		new URL(request.url).searchParams.get("redirectTo") || "/host";
 
 	try {
 		const data = await loginUser({ email, password });
 		console.log(data);
 
 		window.localStorage.setItem("loggedIn", true);
-
-		const response = redirect("/host"); //Just to make redirect work with miragejs
-		response.body = true;
+		const response = redirect(pathname);
+		response.body = true; //Just to make redirect work with miragejs
 		throw response;
 	} catch (err) {
 		return err;
