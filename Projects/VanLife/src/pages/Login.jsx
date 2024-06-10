@@ -46,7 +46,7 @@ export default function Login() {
 				<input name="email" type="email" placeholder="Email address" />
 				<input name="password" type="password" placeholder="Password" />
 				<button disabled={navigation.state === "submitting"}>
-					{navigation.state === "idle" ? "Log in" : "Logging In..."}
+					{navigation.state === "submitting" ? "Logging In..." : "Log in"}
 				</button>
 			</Form>
 		</div>
