@@ -80,7 +80,9 @@ export default function Vans() {
 	return (
 		<div className="van-list-container">
 			<h1>Explore our van options</h1>
-			<Await resolve={loaderData.vans}>{renderAwaitedLayout}</Await>
+			<React.Suspense fallback={<h2>Loading Vans...</h2>}>
+				<Await resolve={loaderData.vans}>{renderAwaitedLayout}</Await>
+			</React.Suspense>
 		</div>
 	);
 }
