@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData, Form } from "react-router-dom";
+import { useLoaderData, Form, redirect } from "react-router-dom";
 import { loginUser } from "../../api";
 
 export function loader({ request }) {
@@ -13,8 +13,11 @@ export async function action({ request }) {
 	const data = await loginUser({ email, password });
 	console.log(data);
 
-	window.localStorage.setItem('loggedIn', true)
+	window.localStorage.setItem("loggedIn", true);
 
+	const response = redirect("/host"); //Just to make redirect to work with miragejs
+	response.body = true;
+	throw response;
 	return null;
 }
 
