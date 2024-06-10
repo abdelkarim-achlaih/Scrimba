@@ -23,64 +23,64 @@ export default function Vans() {
 		});
 	}
 
+	function renderAwaitedLayout(vans) {
+		const displayedVans = typeFilter
+			? vans.filter((van) => van.type === typeFilter)
+			: vans;
+
+		const vanElements = displayedVans.map((van) => (
+			<Van
+				key={van.id}
+				{...van}
+				search={{ search: searchParams.toString(), type: typeFilter }}
+			/>
+		));
+
+		return (
+			<>
+				<div className="van-list-filter-buttons">
+					<button
+						className={`van-type simple${
+							typeFilter === "simple" ? " selected" : ""
+						}`}
+						onClick={() => handleFilterChange("type", "simple")}
+					>
+						Simple
+					</button>
+					<button
+						className={`van-type luxury${
+							typeFilter === "luxury" ? " selected" : ""
+						}`}
+						onClick={() => handleFilterChange("type", "luxury")}
+					>
+						Luxury
+					</button>
+					<button
+						className={`van-type rugged${
+							typeFilter === "rugged" ? " selected" : ""
+						}`}
+						onClick={() => handleFilterChange("type", "rugged")}
+					>
+						Rugged
+					</button>
+					{typeFilter && (
+						<button
+							className="van-type clear-filters"
+							onClick={() => handleFilterChange("type", null)}
+						>
+							Clear
+						</button>
+					)}
+				</div>
+				<div className="van-list">{vanElements}</div>
+			</>
+		);
+	}
+
 	return (
 		<div className="van-list-container">
 			<h1>Explore our van options</h1>
-
-			<Await resolve={loaderData.vans}>
-				{(vans) => {
-					const displayedVans = typeFilter
-						? vans.filter((van) => van.type === typeFilter)
-						: vans;
-
-					const vanElements = displayedVans.map((van) => (
-						<Van
-							key={van.id}
-							{...van}
-							search={{ search: searchParams.toString(), type: typeFilter }}
-						/>
-					));
-					return (
-						<>
-							<div className="van-list-filter-buttons">
-								<button
-									className={`van-type simple${
-										typeFilter === "simple" ? " selected" : ""
-									}`}
-									onClick={() => handleFilterChange("type", "simple")}
-								>
-									Simple
-								</button>
-								<button
-									className={`van-type luxury${
-										typeFilter === "luxury" ? " selected" : ""
-									}`}
-									onClick={() => handleFilterChange("type", "luxury")}
-								>
-									Luxury
-								</button>
-								<button
-									className={`van-type rugged${
-										typeFilter === "rugged" ? " selected" : ""
-									}`}
-									onClick={() => handleFilterChange("type", "rugged")}
-								>
-									Rugged
-								</button>
-								{typeFilter && (
-									<button
-										className="van-type clear-filters"
-										onClick={() => handleFilterChange("type", null)}
-									>
-										Clear
-									</button>
-								)}
-							</div>
-							<div className="van-list">{vanElements}</div>
-						</>
-					);
-				}}
-			</Await>
+			<Await resolve={loaderData.vans}>{renderAwaitedLayout}</Await>
 		</div>
 	);
 }
