@@ -1,5 +1,11 @@
 import React from "react";
-import { useLoaderData, Form, redirect, useActionData } from "react-router-dom";
+import {
+	useLoaderData,
+	Form,
+	redirect,
+	useActionData,
+	useNavigation,
+} from "react-router-dom";
 import { loginUser } from "../../api";
 
 export function loader({ request }) {
@@ -26,9 +32,8 @@ export async function action({ request }) {
 }
 
 export default function Login() {
-	const [status, setStatus] = React.useState("idle");
+	const navigation = useNavigation();
 	const error = useActionData();
-
 	const message = useLoaderData();
 
 	return (
@@ -39,8 +44,8 @@ export default function Login() {
 			<Form method="POST" className="login-form" replace>
 				<input name="email" type="email" placeholder="Email address" />
 				<input name="password" type="password" placeholder="Password" />
-				<button disabled={status === "submitting"}>
-					{status === "idle" ? "Log in" : "Logging In..."}
+				<button disabled={navigation.state === "submitting"}>
+					{navigation.state === "idle" ? "Log in" : "Logging In..."}
 				</button>
 			</Form>
 		</div>
