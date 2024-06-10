@@ -7,7 +7,14 @@ export function loader({ request }) {
 }
 
 export async function action({ request }) {
-	console.log(request);
+	const formData = await request.formData();
+	const email = formData.get("email");
+	const password = formData.get("password");
+	const data = await loginUser({ email, password });
+	console.log(data);
+
+	window.localStorage.setItem('loggedIn', true)
+
 	return null;
 }
 

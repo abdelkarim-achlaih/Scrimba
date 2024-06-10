@@ -1,6 +1,6 @@
 import { redirect } from "react-router-dom";
 export async function requireAuth() {
-	const isLoggedIn = false;
+	const isLoggedIn = window.localStorage.getItem("loggedIn") || false;
 	if (!isLoggedIn) {
 		// throw redirect("/login");S
 		// This block of code is just to make React router to work with miragejs
