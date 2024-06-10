@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData, Form, redirect } from "react-router-dom";
+import { useLoaderData, Form, redirect, useActionData } from "react-router-dom";
 import { loginUser } from "../../api";
 
 export function loader({ request }) {
@@ -10,20 +10,24 @@ export async function action({ request }) {
 	const formData = await request.formData();
 	const email = formData.get("email");
 	const password = formData.get("password");
-	const data = await loginUser({ email, password });
-	console.log(data);
 
-	window.localStorage.setItem("loggedIn", true);
+	try {
+		const data = await loginUser({ email, password });
+		console.log(data);
 
-	const response = redirect("/host"); //Just to make redirect work with miragejs
-	response.body = true;
-	throw response;
-	return null;
+		window.localStorage.setItem("loggedIn", true);
+
+		const response = redirect("/host"); //Just to make redirect work with miragejs
+		response.body = true;
+		throw response;
+	} catch (err) {
+		return err;
+	}
 }
 
 export default function Login() {
 	const [status, setStatus] = React.useState("idle");
-	const [error, setError] = React.useState(null);
+	const error = useActionData();
 
 	const message = useLoaderData();
 
