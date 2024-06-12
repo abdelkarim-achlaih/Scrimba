@@ -1,12 +1,15 @@
 import React from "react";
 import { Link, defer, Await, useLoaderData } from "react-router-dom";
-import { getVans } from "../../../api";
+import { getHostVans } from "../../../api";
 import { requireAuth } from "../../../utils";
 import { BsStarFill } from "react-icons/bs";
 
 export async function loader({ request }) {
 	await requireAuth(request);
-	return defer({ vans: getVans("host/vans") });
+	return defer({
+		vans: getHostVans(),
+		message: new URL(request.url).searchParams.get("message"),
+	});
 }
 
 export default function Dashboard() {
@@ -51,6 +54,7 @@ export default function Dashboard() {
 				</p>
 				<Link to="reviews">Details</Link>
 			</section>
+			{loaderData.message && <h3 className="red">{loaderData.message}</h3>}
 			<section className="host-dashboard-vans">
 				<div className="top">
 					<h2>Your listed vans</h2>

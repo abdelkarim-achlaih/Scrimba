@@ -9,6 +9,12 @@ import {
 import { loginUser } from "../../api";
 
 export function loader({ request }) {
+	const isLoggedIn = window.localStorage.getItem("loggedIn") || false;
+	if (isLoggedIn) {
+		const response = redirect(`/host?message=You are already logged In !`);
+		response.body = true;
+		throw response;
+	}
 	return new URL(request.url).searchParams.get("message");
 }
 
