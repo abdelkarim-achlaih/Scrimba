@@ -20,6 +20,11 @@ const server = http.createServer(async (req, res) => {
 		let filteredData = destinations;
 		res.setHeader("Content-Type", "application/json");
 		res.statusCode = 200;
+		//These lines of code can be written in one line as below using this function
+		res.writeHead(200, {
+			"Content-Type": "text/html",
+			"Access-Control-Allow-Methods": "POST",
+		});
 		res.end(JSON.stringify(filteredData));
 	} else if (req.url.startsWith("/api/continent") && req.method === "GET") {
 		const continent = req.url.split("/").pop();
@@ -42,4 +47,4 @@ const server = http.createServer(async (req, res) => {
 	}
 });
 
-server.listen(PORT, () => console.log(`Connected on port: ${PORT}`));
+server.listen(PORT, () => console.log(`Connected on port: ${PORT}`)); //starts the server
