@@ -1,0 +1,15 @@
+{
+  "name": "paranormal-sightings",
+  "version": "1.0.0",
+  "description": "An app where we can get and post paranormal sightings",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Abdelkarim Achlaih",
+  "license": "ISC",
+  "dependencies": {
+    "sanitize-html": "^2.17.0"
+  }
+}
