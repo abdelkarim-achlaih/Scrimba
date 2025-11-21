@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Translation App</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="/assets/index-BNFfZSuV.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-EjEwHlcN.css">
+</head>
+
+<body>
+  <div class="app">
+    <form id="translator">
+      <div>
+        <h2>Text to translate 👇</h2>
+        <textarea id="inputText" placeholder="Enter text to translate..."></textarea>
+      </div>
+      <div>
+        <h2>Select language 👇</h2>
+        <div>
+          <label>
+            <input type="radio" name="language" value="es" checked>
+            Spanish <span class="fi fi-es"></span>
+          </label>
+          <label>
+            <input type="radio" name="language" value="fr">
+            French <span class="fi fi-fr"></span>
+          </label>
+          <label>
+            <input type="radio" name="language" value="de">
+            German <span class="fi fi-de"></span>
+          </label>
+        </div>
+      </div>
+      <button id="translateBtn">Translate</button>
+    </form>
+    <button id="loaderBtn" style="display:none;" disabled>
+      <i class="fa fa-spinner fa-spin"></i> Loading
+    </button>
+    <div class="output">
+      <h2>Original text 👇</h2>
+      <div id="orginalText"></div>
+      <h2>Your translation 👇</h2>
+      <div id="translation"></div>
+      <button id="startOver">Start Over</button>
+    </div>
+  </div>
+</body>
+
+</html>
