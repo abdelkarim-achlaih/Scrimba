@@ -1,0 +1,6 @@
+name = "my-worker"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+WOKER_URL = "https://openai-api-worker.abdelkarim-developer.workers.dev/"  # Production value

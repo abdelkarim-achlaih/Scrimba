@@ -1,27 +1,35 @@
 import OpenAI from "openai";
 import { apikey } from "./apikey.js";
 
-const openai = new OpenAI({
-	dangerouslyAllowBrowser: true,
-	apiKey: apikey,
-});
+// const openai = new OpenAI({
+// 	dangerouslyAllowBrowser: true,
+// 	apiKey: apikey,
+// });
+
+const WORKER_URL_DEV = "http://127.0.0.1:8787";
+const WORKER_URL_DEPLOY =
+	"https://openai-api-worker.abdelkarim-developer.workers.dev";
 
 async function AITranslate(text, lang) {
 	buttonloader();
-	const response = await openai.chat.completions.create({
-		model: "gpt-5-nano",
-		messages: [
+	const response = await fetch(WORKER_URL_DEPLOY, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify([
 			{
 				role: "system",
 				content: "You are a professional multilingual translator",
 			},
 			{
 				role: "user",
-				content: `Translate the following text to ${lang}:\n\n${text}`,
+				content: `Translate the following text to ${lang}: ${text}`,
 			},
-		],
+		]),
 	});
-	renderOutput(response.choices[0].message.content);
+	const data = await response.json();
+	renderOutput(data.content);
 }
 function buttonloader() {
 	if (loaderBtn.style.display == "none") {
