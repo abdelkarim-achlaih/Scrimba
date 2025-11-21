@@ -29,6 +29,10 @@ async function AITranslate(text, lang) {
 		]),
 	});
 	const data = await response.json();
+	console.log(response.ok);
+	if (!response.ok) {
+		return renderOutput(`Error: ${data.error}`);
+	}
 	renderOutput(data.content);
 }
 function buttonloader() {
