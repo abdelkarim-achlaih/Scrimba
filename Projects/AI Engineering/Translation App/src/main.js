@@ -1,11 +1,3 @@
-import OpenAI from "openai";
-import { apikey } from "./apikey.js";
-
-// const openai = new OpenAI({
-// 	dangerouslyAllowBrowser: true,
-// 	apiKey: apikey,
-// });
-
 const WORKER_URL_DEV = "http://127.0.0.1:8787";
 const WORKER_URL_DEPLOY =
 	"https://openai-api-worker.abdelkarim-developer.workers.dev";
